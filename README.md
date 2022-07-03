@@ -43,7 +43,7 @@ curl --location --request GET 'http://localhost:8080/health'
 |DBMS|MySQL|8.0||
 |NOSQL|MongoDB|4.0|AWS DocumentDB (MongoDB 4.0 버전을 따름)|
 |Language|JAVA|11||
-|Spring Boot |2.7.1||
+|Framework|Spring Boot |2.7.1||
 
 ---
 ### 개발 방식
