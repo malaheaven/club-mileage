@@ -19,12 +19,22 @@ repositories {
 }
 
 dependencies {
+    // for jpa
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // for mongodb
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // for mysql-connector
     runtimeOnly 'mysql:mysql-connector-java'
+
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // for lombok
+    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

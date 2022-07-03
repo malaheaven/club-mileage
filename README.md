@@ -1,4 +1,49 @@
 # club-mileage
+### 실행 방법
+##### Repository Clone
+```
+git clone https://github.com/malaheaven/club-mileage.git
+```
+
+##### Docker
+docker가 설치되어 있는 경우 사용 가능. docker를 설치해 주세요.
+
+docker 설치: [Download Docker](https://www.docker.com/products/docker-desktop/)
+
+아래 쉘 파일 run
+```
+sh start.sh
+```
+
+```bash
+# start.sh 내용
+
+rm -rf ./docker/db/  # remove docker volume directory
+./gradlew clean      # spring boot build clean
+./gradlew bootJar    # spring boot bootJar
+
+cd docker/           # move docker directory
+
+#sh docker-clear.sh  # docker 현재 실행하는 컨테이너 제거 및 docker-compose.yml 정의 파일에서 지정한 컨테이너를 정지시키고 모든 이미지를 삭제 (필요시 주석 해제 후 사용)
+sh docker-start.sh   # docker run
+```
+
+health_check
+```curl
+curl --location --request GET 'http://localhost:8080/health'
+```
+
+참고 사항
+- Spring Boot 가 계속 재실행 되는 구간이 있다. 10번 이상 지속되지 않으니 기다리면 Spring Boot가 정상 동작한다.
+
+---
+### version
+|kind|name|version|etc |
+|-----|----|-------|----|
+|DBMS|MySQL|8.0||
+|NOSQL|MongoDB|4.0|AWS DocumentDB (MongoDB 4.0 버전을 따름)|
+|Language|JAVA|11||
+|Spring Boot |2.7.1||
 
 ---
 ### 개발 방식
