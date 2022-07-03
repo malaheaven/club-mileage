@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  mysql:
+    platform: linux/x86_64
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: clubmileage
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: root
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/db/mysql:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  mongodb:
+    image: mongo:4.0
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    volumes:
+      - ./docker/db/mongodb:/data/db
+    healthcheck:
+      test: echo 'db.runCommand({serverStatus:1}).ok' | mongo admin -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --quiet | grep 1
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+
+  application:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: club-mileage
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - mongodb
