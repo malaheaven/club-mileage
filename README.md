@@ -37,6 +37,15 @@ curl --location --request GET 'http://localhost:8080/health'
 - Spring Boot 가 계속 재실행 되는 구간이 있다. 10번 이상 지속되지 않으니 기다리면 Spring Boot가 정상 동작한다.
 
 ---
+### version
+|kind|name|version|etc |
+|-----|----|-------|----|
+|DBMS|MySQL|8.0||
+|NOSQL|MongoDB|4.0|AWS DocumentDB (MongoDB 4.0 버전을 따름)|
+|Language|JAVA|11||
+|Spring Boot |2.7.1||
+
+---
 ### 개발 방식
 
 #### 개발하면서 중요하게 여기고 싶은 항목
