@@ -22,6 +22,9 @@ dependencies {
     // for jpa
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
+    // for p6spy
+    implementation 'com.github.gavlyukovskiy:datasource-proxy-spring-boot-starter:1.8.0'
+
     // for mongodb
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 
