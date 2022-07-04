@@ -1,16 +1,21 @@
 # club-mileage
+
 ### 실행 방법
+
 ##### Repository Clone
+
 ```
 git clone https://github.com/malaheaven/club-mileage.git
 ```
 
 ##### Docker
+
 docker가 설치되어 있는 경우 사용 가능. docker를 설치해 주세요.
 
 docker 설치: [Download Docker](https://www.docker.com/products/docker-desktop/)
 
 아래 쉘 파일 run
+
 ```
 sh start.sh
 ```
@@ -29,15 +34,19 @@ sh docker-start.sh   # docker run
 ```
 
 health_check
+
 ```curl
 curl --location --request GET 'http://localhost:8080/health'
 ```
 
 참고 사항
+
 - Spring Boot 가 계속 재실행 되는 구간이 있다. 10번 이상 지속되지 않으니 기다리면 Spring Boot가 정상 동작한다.
 
 ---
+
 ### version
+
 |kind|name|version|etc |
 |-----|----|-------|----|
 |DBMS|MySQL|8.0||
@@ -46,25 +55,33 @@ curl --location --request GET 'http://localhost:8080/health'
 |Framework|Spring Boot |2.7.1||
 
 ---
+
 ### 개발 문서
+
 개발 문서는 Repository 내 wiki 탭에 기재되어 있습니다.
-[wiki 바로가기](https://github.com/malaheaven/club-mileage/wiki/Club-Mileage)
+[wiki 바로가기](https://github.com/malaheaven/club-mileage/wiki)
+
 - 요구사항
 - ERD
 - API 문서
+
 ---
+
 ### 개발 방식
 
 #### 개발하면서 중요하게 여기고 싶은 항목
+
 1. 기능 위주로 개발하기.
 2. 먼저 이슈를 생성하고 이슈에 대한 기능 개발을 해야하나, 이를 생략하고 기능 위주인 PR로 개발 내용 및 history 관리
 
 ##### Branch 규칙
+
 - feature : 새로운 기능 개발이나 버그 수정을 위한 브랜치
 - develop : 새로운 기능(feature)에 대한 검토(PR)가 완료되면 소스코드를 합치기 위한 브랜치
 - main : 정식 배포되는 안정적인 소스코드를 이곳에서 관리
 
 ##### Commit 규칙
+
 |Name     |Description|
 |---------|-----------|
 |ADD      |코드 추가|
