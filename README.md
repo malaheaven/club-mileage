@@ -46,6 +46,13 @@ curl --location --request GET 'http://localhost:8080/health'
 |Framework|Spring Boot |2.7.1||
 
 ---
+### 개발 문서
+개발 문서는 Repository 내 wiki 탭에 기재되어 있습니다.
+[wiki 바로가기](https://github.com/malaheaven/club-mileage/wiki/Club-Mileage)
+- 요구사항
+- ERD
+- API 문서
+---
 ### 개발 방식
 
 #### 개발하면서 중요하게 여기고 싶은 항목
