@@ -16,3 +16,13 @@ spring:
       database: clubmileage
       username: root
       password: root
+      authentication-database: admin
+
+  sql:
+    init:
+      mode: never
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
