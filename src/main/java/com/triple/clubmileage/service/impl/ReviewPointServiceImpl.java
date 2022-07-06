@@ -121,7 +121,7 @@ public class ReviewPointServiceImpl implements ReviewPointService {
     }
 
     @Transactional
-    private void modifyReview(RequestDto.Review requestDto) {
+    public void modifyReview(RequestDto.Review requestDto) {
 
         long point = 0;
 
@@ -130,8 +130,8 @@ public class ReviewPointServiceImpl implements ReviewPointService {
         UserPoint userPoint = getUserPoint(requestDto.getUserId());
 
         // 변경 이력 체크: 변경 된 이력이 없다면 return
-        if (StringUtils.hasText(requestDto.getContent()) == userReviewHistory.getContent()
-                && (!requestDto.getAttachedPhotoIds().isEmpty()) == userReviewHistory.getPhoto()) {
+        if (userReviewHistory.getContent() == StringUtils.hasText(requestDto.getContent())
+                && userReviewHistory.getPhoto() == (!requestDto.getAttachedPhotoIds().isEmpty())) {
             return;
         }
 
