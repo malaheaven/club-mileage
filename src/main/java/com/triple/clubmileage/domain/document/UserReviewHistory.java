@@ -38,18 +38,30 @@ public class UserReviewHistory implements Serializable {
     @Field
     private String userId;
 
+    @Builder.Default
     @Field
-    private Boolean content;
+    private Boolean content = Boolean.FALSE;
 
+    @Builder.Default
     @Field
-    private Boolean photo;
+    private Boolean photo = Boolean.FALSE;
 
+    @Builder.Default
     @Field
-    private Boolean firstReview;
+    private Boolean firstReview = Boolean.FALSE;
 
     @CreatedDate
     private LocalDateTime createdAt;
 
     @LastModifiedDate
     private LocalDateTime modifiedAt;
+
+
+    public void updateContent(boolean bool) {
+        this.content = bool;
+    }
+
+    public void updatePhoto(boolean bool) {
+        this.photo = bool;
+    }
 }
