@@ -1,16 +1,23 @@
 package com.triple.clubmileage.domain.entity;
 
 import com.triple.clubmileage.common.enums.PointType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(indexes = {
-        @Index(name = "unique_user_id", columnList = "userId", unique = true)
-})
-public class UserPointHistory extends BaseTimeEntity {
+@Table(indexes = {@Index(name = "user_id", columnList = "userId")})
+public class UserPointHistory extends BaseTimeEntity implements Serializable {
+
+    private static final long serialVersionUID = -5426506274202081362L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +35,7 @@ public class UserPointHistory extends BaseTimeEntity {
 
     private String pointTypeDetail;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userPoint", foreignKey = @ForeignKey(name = "fk_user_point_history_user_point"))
     private UserPoint userPoint;
 

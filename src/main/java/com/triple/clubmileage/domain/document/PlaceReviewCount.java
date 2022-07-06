@@ -19,36 +19,21 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@CompoundIndex(name = "user_review_history_idx", def = "{place_id: 1, review_id : 1, user_id: 1}", unique = true)
-@Document(collection = "USER_REVIEW_HISTORY")
-public class UserReviewHistory implements Serializable {
+@CompoundIndex(name = "place_id_1", def = "{place_id: 1}", unique = true)
+@Document(collection = "PLACE_REVIEW_COUNT")
+public class PlaceReviewCount implements Serializable {
 
-    private static final long serialVersionUID = 3550288393866215542L;
+    private static final long serialVersionUID = 414377654271917269L;
 
     @Id
     @Field(targetType = FieldType.OBJECT_ID)
     private String id;
 
     @Field
-    private String reviewId;
-
-    @Field
     private String placeId;
 
     @Field
-    private String userId;
-
-    @Builder.Default
-    @Field
-    private Boolean content = Boolean.FALSE;
-
-    @Builder.Default
-    @Field
-    private Boolean photo = Boolean.FALSE;
-
-    @Builder.Default
-    @Field
-    private Boolean firstReview = Boolean.FALSE;
+    private Long count;
 
     @CreatedDate
     private LocalDateTime createdAt;
@@ -56,12 +41,11 @@ public class UserReviewHistory implements Serializable {
     @LastModifiedDate
     private LocalDateTime modifiedAt;
 
-
-    public void updateContent(boolean bool) {
-        this.content = bool;
+    public void increaseCount() {
+        this.count += 1;
     }
 
-    public void updatePhoto(boolean bool) {
-        this.photo = bool;
+    public void decreaseCount() {
+        this.count -= 1;
     }
 }
