@@ -1,0 +1,69 @@
+= Club Mileage
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+[[OVERVIEW]]
+== Overview
+
+[[OVERVIEW-HOST]]
+===  HOST
+
+|===
+| 환경 | HOST
+| DOCKER
+| http://localhost:8080/
+
+| LOCAL
+| http://localhost:8081/
+|===
+
+[[OVERVIEW-RESPONSE-CODE]]
+=== RESPONSE CODE
+
+|===
+| CODE | MESSAGE | DESCRIPTION
+| `200`
+| OK
+| 성공
+
+| `400`
+| Bad Request
+| 잘못된 요청
+
+| `404`
+| Not Found
+| 존재하지 않는 요청 리소스
+
+| `500`
+| Internal Server Error
+| 서버 에러
+
+| `1001`
+| REVIEW NOT FOUND
+| 등록된 리뷰 찾지 못함
+
+| `1002`
+| REVIEW ALREADY EXIST
+| 등록된 리뷰 이미 존재
+
+|===
+
+[[POINT-API]]
+== USER API
+
+[[POINT-유저-포인트-조회]]
+=== User Point 조회
+
+operation::get-user-point[snippets='curl-request,http-request,http-response,response-body,response-fields,response-headers']
+
+[[REVIEW-API]]
+== REVIEW API
+
+[[REVIEW-포인트-등록]]
+=== Review Point 등록
+
+operation::post-events[snippets='curl-request,http-request,http-response,request-body,request-fields,request-headers,response-body,response-fields,response-headers']
