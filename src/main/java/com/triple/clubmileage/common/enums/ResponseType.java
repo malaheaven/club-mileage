@@ -15,8 +15,8 @@ public enum ResponseType {
     NOT_FOUND(HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND.getReasonPhrase()),
     METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED.value(), HttpStatus.METHOD_NOT_ALLOWED.getReasonPhrase()),
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase()),
-    REVIEW_NOT_FOUND(101, "REVIEW NOT FOUND"),
-    DUPLICATE_KEY_EXCEPTION(102, "REVIEW ALREADY EXIST");
+    REVIEW_NOT_FOUND(1001, "REVIEW NOT FOUND"),
+    DUPLICATE_KEY_EXCEPTION(1002, "REVIEW ALREADY EXIST");
 
     Integer code;
     String message;
