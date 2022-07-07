@@ -58,12 +58,27 @@ curl --location --request GET 'http://localhost:8080/health'
 
 ### 개발 문서
 
+- TimeZone : UTC
+```
+  @PostConstruct
+    public void construct() {
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+    }
+```
+
 개발 문서는 Repository 내 wiki 탭에 기재되어 있습니다.
 [wiki 바로가기](https://github.com/malaheaven/club-mileage/wiki)
 
 - 요구사항
 - ERD
 - API 문서
+
+#### Spring Rest Docs 적용
+
+|환경|url|ETC|
+|---|----|---|
+|Docker|http://localhost:8080/docs/index.html| Docker로 실행하면 해당 URL|
+|Local|http://localhost:8081/docs/index.html||
 
 ---
 

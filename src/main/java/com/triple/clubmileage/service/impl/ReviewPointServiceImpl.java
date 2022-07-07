@@ -31,7 +31,9 @@ public class ReviewPointServiceImpl implements ReviewPointService {
     private final PlaceReviewCountRepository placeReviewCountRepository;
 
     private Boolean checkExistUserReviewHistory(RequestDto.Review requestDto) {
-        return userReviewHistoryRepository.findByPlaceIdAndReviewIdAndUserId(requestDto.getPlaceId(), requestDto.getReviewId(), requestDto.getUserId()).isPresent();
+        return userReviewHistoryRepository
+                .findByPlaceIdAndReviewIdAndUserId(requestDto.getPlaceId(), requestDto.getReviewId(), requestDto.getUserId())
+                .isPresent();
     }
 
     private UserPoint getUserPoint(String userId) {

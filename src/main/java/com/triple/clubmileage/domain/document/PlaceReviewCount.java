@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@CompoundIndex(name = "place_id_1", def = "{place_id: 1}", unique = true)
+@CompoundIndex(name = "place_id_idx", def = "{place_id: 1}", unique = true)
 @Document(collection = "PLACE_REVIEW_COUNT")
 public class PlaceReviewCount implements Serializable {
 
