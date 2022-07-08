@@ -12,7 +12,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
-    asciidoctorExtensions
+    asciidoctorExt
 
     compileOnly {
         extendsFrom annotationProcessor
@@ -21,6 +21,11 @@ configurations {
 
 repositories {
     mavenCentral()
+}
+
+ext {
+    asciidocVersion = "2.0.6.RELEASE"
+    snippetsDir = file('build/generated-snippets')
 }
 
 dependencies {
@@ -59,15 +64,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     // for rest docs
-    asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor'
-    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    asciidoctorExt "org.springframework.restdocs:spring-restdocs-asciidoctor:${asciidocVersion}"
+    testImplementation "org.springframework.restdocs:spring-restdocs-mockmvc:${asciidocVersion}"
 
 }
-
-ext {
-    snippetsDir = file('build/generated-snippets')
-}
-
 
 test {
     outputs.dir snippetsDir
@@ -75,29 +75,19 @@ test {
 }
 
 asciidoctor {
-    dependsOn test
-    configurations 'asciidoctorExtensions'
     inputs.dir snippetsDir
-    baseDirFollowsSourceFile()
+    configurations 'asciidoctorExt'
+    dependsOn test
 }
 
 asciidoctor.doFirst {
     delete file('src/main/resources/static/docs')
 }
 
-task copyDocument(type: Copy) {
-    dependsOn asciidoctor
-    from file("build/docs/asciidoc")
-    into file("src/main/resources/static/docs")
-}
-
-build {
-    dependsOn copyDocument
-}
-
 bootJar {
     dependsOn asciidoctor
-    from ("${asciidoctor.outputDir}/html5") {
-        into 'static/docs'
+    copy {
+        from asciidoctor.outputDir
+        into "src/main/resources/static/docs"
     }
 }
