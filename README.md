@@ -77,7 +77,7 @@ curl --location --request GET 'http://localhost:8080/health'
 
 |환경|url|ETC|
 |---|----|---|
-|Docker|http://localhost:8080/docs/index.html| Docker로 실행하면 해당 URL|
+|Docker|http://localhost/docs/index.html| Docker로 실행하면 해당 URL|
 |Local|http://localhost:8081/docs/index.html||
 
 ---
