@@ -36,7 +36,7 @@ cd docker/           # move docker directory
 sh docker-start.sh   # docker run
 ```
 
-health_check
+health check
 
 ```curl
 curl --location --request GET 'http://localhost/health'
