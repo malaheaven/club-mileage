@@ -34,4 +34,8 @@ public class ResponseDto<T> {
         return new ResponseDto<>(responseType.getCode(), responseType.getMessage(), null);
     }
 
+    public static <T> ResponseDto<T> from(final ResponseType responseType, String message) {
+        return new ResponseDto<>(responseType.getCode(), message, null);
+    }
+
 }
