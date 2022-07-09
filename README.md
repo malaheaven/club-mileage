@@ -29,7 +29,7 @@ sh start.sh
 rm -rf ./docker/db/  # remove docker volume directory
 ./gradlew clean      # spring boot build clean
 ./gradlew bootJar    # spring boot bootJar
-./gradlew bootJar    # Spring REST Docs index.html이 첫번째 빌드로 생성이 되지 않아 임시방편으로 빌드를 두번 실행..(원인을 아직 알지 못함)
+./gradlew bootJar    # Spring REST Docs index.html이 첫번째 빌드로 생성이 되지 않아 임시방편으로 빌드를 두번 실행..(원인을 아직  못함)
 
 cd docker/           # move docker directory
 
