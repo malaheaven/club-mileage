@@ -36,7 +36,7 @@ sh docker-start.sh   # docker run
 health_check
 
 ```curl
-curl --location --request GET 'http://localhost:8080/health'
+curl --location --request GET 'http://localhost/health'
 ```
 
 참고 사항
