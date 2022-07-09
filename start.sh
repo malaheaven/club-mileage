@@ -1,6 +1,7 @@
 rm -rf ./docker/db/
 ./gradlew clean
 ./gradlew bootJar
+./gradlew bootJar
 
 cd docker/
 
