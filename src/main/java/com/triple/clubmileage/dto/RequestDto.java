@@ -22,7 +22,7 @@ public class RequestDto {
         @NotNull
         private PointType type;
 
-        @NotNull
+        @NotNull(message = "SELECT : [ ADD, MOD, DELETE ]")
         private ReviewType action;
 
         @NotNull
