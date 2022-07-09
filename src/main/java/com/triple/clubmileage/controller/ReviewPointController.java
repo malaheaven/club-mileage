@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -17,7 +19,7 @@ public class ReviewPointController {
     private final ReviewPointService reviewPointService;
 
     @PostMapping("/events")
-    public ResponseDto<?> addPoint(@RequestBody RequestDto.Review requestDto) {
+    public ResponseDto<?> addPoint(@Valid @RequestBody RequestDto.Review requestDto) {
         reviewPointService.addPoint(requestDto);
         return ResponseDto.success();
     }
