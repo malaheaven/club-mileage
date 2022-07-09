@@ -95,6 +95,8 @@ curl --location --request GET 'http://localhost/health'
 - develop : 새로운 기능(feature)에 대한 검토(PR)가 완료되면 소스코드를 합치기 위한 브랜치
 - main : 정식 배포되는 안정적인 소스코드를 이곳에서 관리
 
+##### 간단한 테스트 코드도 작성했습니다.
+
 ##### Commit 규칙
 
 |Name     |Description|
