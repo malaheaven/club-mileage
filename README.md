@@ -8,6 +8,9 @@
 git clone https://github.com/malaheaven/club-mileage.git
 ```
 
+##### JDK 설치
+JDK 11(이)가 설치되어 있는 경우 사용가능. JDK11을 설치해주세요.
+
 ##### Docker
 
 docker가 설치되어 있는 경우 사용 가능. docker를 설치해 주세요.
