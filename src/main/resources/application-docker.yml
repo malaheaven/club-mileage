@@ -1,0 +1,28 @@
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/clubmileage?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+
+  data:
+    mongodb:
+      host: mongodb
+      port: 27017
+      database: clubmileage
+      username: root
+      password: root
+      authentication-database: admin
+
+  sql:
+    init:
+      mode: never
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
